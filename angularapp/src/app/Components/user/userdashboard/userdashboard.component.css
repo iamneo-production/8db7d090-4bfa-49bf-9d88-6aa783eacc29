@@ -1,0 +1,34 @@
+nav {
+    background-color: blue;
+    
+}
+ul {
+    list-style-type: none;
+}
+  
+li {
+    display: inline;
+}
+  
+li a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding:10px;
+    font-size:18px;
+}
+li a:hover{
+    background-color:red;
+    color:black;
+}
+
+#logout{
+    margin-left: 65%;
+}
+nav ul li a.active{
+    background-color: aqua;
+    color: black;
+}
+.ele{
+    font-size:20px;
+}

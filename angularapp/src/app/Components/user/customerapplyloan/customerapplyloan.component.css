@@ -1,0 +1,26 @@
+div{
+    margin-top: 50px;
+    border: 2px solid green;
+    height: auto;
+    background-color:rgba(0, 0, 255, 0.542);
+    padding: 20px;
+    text-align: center;
+    
+}
+#enterName,#enterAddress,#chosen,#enterMobile,#enterEmail,#enterAadharNo,#enterPanNo,#enterSalary,#enterAmount,#enterMonths,#selectDocumentType{
+    width:30%;
+    margin-top: 10px;
+    height:30px;
+}
+#apply{
+    width: 60px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+input{
+    margin-bottom: 10px;
+}
+span{
+    color: rgb(243, 10, 10);
+}
