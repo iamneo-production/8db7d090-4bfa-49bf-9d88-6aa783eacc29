@@ -1,0 +1,17 @@
+.bg-green {
+    background-color: green;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    font-size:1.5em;
+}
+
+.App-name{
+    font-size:3ch;
+    font-weight: bolder;
+    color: white;
+}
