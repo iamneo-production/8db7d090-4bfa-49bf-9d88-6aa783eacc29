@@ -26,7 +26,6 @@
 /home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
 /home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll
 /home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/Microsoft.Identity.Client.dll
-/home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
 /home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
 /home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
 /home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
