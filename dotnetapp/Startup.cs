@@ -13,8 +13,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
-using Loans.Data;
-using dotnetapp.Controllers;
 
 namespace dotnetapp
 {
@@ -33,12 +31,7 @@ namespace dotnetapp
             //string connectionString = Configuration.GetConnectionString("myconnstring");
            // services.AddDbContext<ProductDBContext>(opt => opt.UseSqlServer(connectionString));
            // services.AddScoped<IProductService, ProductService>();
-            services.AddCors(options =>
-            {
-                options.AddPolicy("MyPolicy", x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-            });
-            var connectionString = "User ID=sa;password=examlyMssql@123;server=localhost;Database=DBname;trusted_connection=false; Persist Security Info=False;Encrypt=False";
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddCors();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -56,8 +49,6 @@ namespace dotnetapp
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "dotnetapp v1"));
             }
-
-            app.UseCors("MyPolicy");
 
             app.UseHttpsRedirection();
 
