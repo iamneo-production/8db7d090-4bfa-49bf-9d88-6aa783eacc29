@@ -20,23 +20,23 @@
         <small *ngIf="SignupForm.controls['mobilenumber'].touched && SignupForm.hasError('required','mobilenumber')">mobile Number is required</small>
         <div class="input-container">
           <input type="{{passType}}" id="password" name="password" placeholder="Enter Password" formControlName="password" >
-               <!-- <span class="password-toggle-icon-p" (click)="toggle()" *ngIf="!showPass" id="faicon">
-                  <i><fa-icon [icon]="faEyeSlash" ></fa-icon></i>
+               <span class="password-toggle-icon-p" (click)="toggle()" *ngIf="!showPass" id="faicon">
+                <i class="fa-solid fa-eye-slash"></i>
                </span>
                <span class="password-toggle-icon-p" (click)="toggle()" *ngIf="showPass" id="faicon">
-                  <i><fa-icon [icon]="faEye" ></fa-icon></i>
-               </span> -->
+                <i class="fa-solid fa-eye"></i>
+               </span>
         </div>
         <small *ngIf="SignupForm.controls['password'].touched && SignupForm.hasError('required','password')">password is required</small>
         
         <div class="input-container">
           <input type="{{confirmPassType}}" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" formControlName="confirmpassword">
-          <!-- <span class="password-toggle-icon-cp" (click)="toggleConfirmPass()" *ngIf="!showConfirmPass">
-              <i><fa-icon [icon]="faEyeSlash"></fa-icon></i>
+          <span class="password-toggle-icon-cp" (click)="toggleConfirmPass()" *ngIf="!showConfirmPass">
+            <i class="fa-solid fa-eye-slash"></i>
            </span>
            <span class="password-toggle-icon-cp" (click)="toggleConfirmPass()" *ngIf="showConfirmPass">
-             <i><fa-icon [icon]="faEye"></fa-icon></i>
-           </span> -->
+             <i class="fa-solid fa-eye"></i>
+           </span>
         </div>          
        <small *ngIf="SignupForm.controls['confirmpassword'].dirty && SignupForm.get('confirmpassword')?.hasError('passwordMismatch')">password Does not Match</small>
       </form>

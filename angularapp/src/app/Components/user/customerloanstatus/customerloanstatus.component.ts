@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { docFormat } from 'src/app/Models/document';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -22,7 +23,7 @@ export class CustomerloanstatusComponent {
   editLoan!:FormGroup ;
   editDocuments!:FormGroup;
 
-  constructor(private fb: FormBuilder,public loanService: LoanService,private router:Router,private http :HttpClient){
+  constructor(private fb: FormBuilder,private notif:ToastrService,public loanService: LoanService,private router:Router,private http :HttpClient){
     this.editLoan=this.fb.group({
       loanId:[''],
       applicantName:['',[Validators.required]],
@@ -71,6 +72,7 @@ export class CustomerloanstatusComponent {
         
       })
       , error: (err => {
+        this.notif.error(err?.error.message);
         alert(err?.error.message)
       })
     })

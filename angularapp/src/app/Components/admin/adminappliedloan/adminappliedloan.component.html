@@ -9,6 +9,7 @@
         <table [ngClass]="item.loanStatus === 'approved' ? 'adminLoanGrid1' : 'adminLoanGrid2'">
           <tbody>
             <tr>
+          
               <td style="width: 15%; text-align: left;">Applicant name:</td>
               <td style="width: 15%; text-align: left;">{{ item.applicantName }}</td>
               <td style="width: 15%; text-align: left;">Applicant Address:</td>
@@ -54,14 +55,24 @@
                     Reject
                   </button>
                 </ng-template>
-              </td>              
+              </td> 
+              <td >
+                <input style="margin-left:50%; width: 25px; height: 30px;" type="checkbox" [(ngModel)]="item.selected" [ngModelOptions]="{standalone: true}"
+                (change)="handleSelection(item)">
+            </td>             
             </tr>
           </tbody>
         </table>
-        <br><br><br><br>
+        <br><br>
       </div>
+      <br>
+      <button style="margin-left:85%;" class="btn-success" (click)="handleMultipleApprove()">Approve Selected</button>
+      <br>
+      <br>
+      <button style="margin-left:85% ;width: 10.7%;" class="btn-danger" (click)="handleMultipleReject()">Reject Selected</button>
     </div>
   </div>
+
 </div>
 
 <div *ngIf="oneditTime">

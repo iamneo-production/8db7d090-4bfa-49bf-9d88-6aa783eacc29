@@ -1,4 +1,5 @@
 export interface applyLoan {
+    selected: any;
     loanId:string;  
     loantype:string
     applicantName:string
