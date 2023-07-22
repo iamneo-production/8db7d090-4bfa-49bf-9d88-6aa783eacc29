@@ -15,6 +15,7 @@ export class AdminappliedloanComponent implements OnInit {
   Applicantarray: applyLoan[] = [];
   item: applyLoan[] = []; // Define the 'item' variable as an array of LoanApplicant objects
   editLoan!:FormGroup;
+  selectedApplicants: applyLoan[] = [];
   constructor(private fb:FormBuilder  ,private adminService: AdminService, private http: HttpClient, private router:Router) {
 
     this.editLoan=this.fb.group({
@@ -46,8 +47,10 @@ export class AdminappliedloanComponent implements OnInit {
   }
 
   handleApprove(loanId: number) {
-    this.adminService.approveLoan(loanId).subscribe((res: any) => {
+    this.adminService.approveLoan(loanId).subscribe(
+      (res: any) => {
         if (res.Status === 'Success') {  
+          console.log(res.Status)
           this.Show=false;
           this.Show=true;
           this.ngOnInit();
@@ -58,7 +61,8 @@ export class AdminappliedloanComponent implements OnInit {
   }
 
   handleReject(loanId: number) {
-    this.adminService.rejectLoan(loanId).subscribe((res:any)=>
+    this.adminService.rejectLoan(loanId).subscribe(
+      (res:any)=>
     {
       if (res.Status === 'Success') {  
         this.ngOnInit();
@@ -67,6 +71,51 @@ export class AdminappliedloanComponent implements OnInit {
       }
     }, (err) => console.log(err));
 }
+
+
+
+handleMultipleApprove() {
+  const selectedIds = this.selectedApplicants.map((applicant) => applicant.loanId);
+  this.adminService.approveMultipleLoans(selectedIds.map(Number)).subscribe(
+    (res: any) => {
+      if (res.Status === 'Success') {
+        console.log(res.Status);
+        this.selectedApplicants = []; // Clear the selected applicants
+        this.ngOnInit();
+      } else {
+        console.log(res);
+      }
+    },
+    (err: any) => console.log(err)
+  );
+}
+
+handleMultipleReject() {
+  const selectedIds = this.selectedApplicants.map((applicant) => applicant.loanId);
+  this.adminService.rejectMultipleLoans(selectedIds.map(Number)).subscribe(
+    (res: any) => {
+      if (res.Status === 'Success') {
+        this.selectedApplicants = []; // Clear the selected applicants
+        this.ngOnInit();
+      } else {
+        console.log(res);
+      }
+    },
+    (err: any) => console.log(err)
+  );
+}
+
+handleSelection(applicant: applyLoan) {
+  if (applicant.selected) {
+    this.selectedApplicants.push(applicant);
+  } else {
+    const index = this.selectedApplicants.indexOf(applicant);
+    if (index > -1) {
+      this.selectedApplicants.splice(index, 1);
+    }
+  }
+}
+
 
     //Edit Loan
 

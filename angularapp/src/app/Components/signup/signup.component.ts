@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Services/auth.service';
 // import {
 //   faEye,
@@ -28,7 +29,7 @@ export class SignupComponent implements OnInit {
   confirmPassType: string = 'password';
   SignupForm!: FormGroup;
   
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router,private notif:ToastrService) {
 
   }
   ngOnInit(): void {
@@ -74,12 +75,13 @@ export class SignupComponent implements OnInit {
         .subscribe({
           next: (res => {
             alert(res.message)
+            this.notif.success("Admin Registerd Successfully");
             this.SignupForm.reset();
             this.router.navigate(['login']);
           })
           , error: (err => {
             alert(err?.error.message)
-           // this.notif.error('Error', 'Email already registered!!!', { timeOut:3000});
+            this.notif.error('Error', 'Email already registered!!!', { timeOut:3000});
           })
         })
       }
@@ -89,12 +91,12 @@ export class SignupComponent implements OnInit {
             next: (res => {
               alert(res.message)
               this.SignupForm.reset();
-              //this.notif.success('Success', 'Account created Successfully!');
+              this.notif.success('Success', 'Account created Successfully!');
               this.router.navigate(['login']);
             })
             , error: (err => {
               alert(err?.error.message)
-              //this.notif.error('Error', 'Email already registered!!!', { timeOut:3000});
+              this.notif.error('Error', 'Email already registered!!!', { timeOut:3000});
             })
           })
       }

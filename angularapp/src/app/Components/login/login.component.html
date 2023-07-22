@@ -10,12 +10,12 @@
             <label for="password">Password</label>
             <div class="input-container">
                 <input type="{{passType}}" id="password"  placeholder="Enter Password" formControlName="password" required/>
-                <!-- <span class="password-toggle-icon" (click)="toggle()" *ngIf="!showPass" >
-                       <i class="fa fa-eye"><fa-icon [icon]="faEyeSlash" ></fa-icon></i>
+                <span class="password-toggle-icon" (click)="toggle()" *ngIf="!showPass" >
+                       <i class="fa-solid fa-eye-slash"></i>
                 </span>
                 <span class="password-toggle-icon" (click)="toggle()" *ngIf="showPass">
-                       <i class="fa fa-eye"><fa-icon [icon]="faEye" ></fa-icon></i>
-                </span> -->
+                       <i class="fa-solid fa-eye"></i>
+                </span>
             </div>
             <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
                 <span *ngIf="loginForm.hasError('required','password')" style="color:red;">Password is required</span>

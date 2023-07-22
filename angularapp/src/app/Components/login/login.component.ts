@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators,FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/Services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 // import {
 //   faEye,
 //   faEyeSlash,
@@ -12,8 +13,8 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-  constructor(private router:Router,private auth:AuthService,private fb:FormBuilder){}
-  loginForm:FormGroup;
+  constructor(private router:Router,private auth:AuthService,private fb:FormBuilder,private notif:ToastrService){}
+  loginForm!:FormGroup;
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
@@ -35,7 +36,8 @@ export class LoginComponent implements OnInit{
         next: (res) => {
           this.loginForm.reset();
           this.auth.storeToken(res.token);
-          //this.notif.success('SUCCESS', res.message, { timeOut: 3000 });
+          console.log(res.token);
+          this.notif.success('SUCCESS', res.message, { timeOut: 3000 });
           if (this.auth.getRole() === 'admin') {
             this.router.navigate(['admin']);
           } else {
@@ -43,12 +45,13 @@ export class LoginComponent implements OnInit{
           }
         },
         error: (err) => {
-          //this.notif.error('Error', 'Incorrect email and password', {timeOut: 3000,});
+          this.notif.error('Error', 'Incorrect email and password', {timeOut: 3000,});
           alert(err.message);
         },
       });
+    
     }
-  }
+   }
 
  toggle() {
   if (this.showPass) {
