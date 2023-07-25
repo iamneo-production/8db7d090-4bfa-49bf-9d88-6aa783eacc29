@@ -1,19 +1,18 @@
 <app-admindashboard></app-admindashboard>
 <br><br>
 <div class="bar">
-    <input type="text" ngModel="searchQuery" placeholder="Enter Loan ID to Search">&nbsp;
-    <button (click)="SearchbyId()">SearchByID</button>&nbsp;
-    <button (click)="SearchbyName()">SearchByName</button>
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Enter Loan ID to Search">&nbsp;
+    <button (click)="search()">Search</button>&nbsp;
+    <!-- <button (click)="fetchAllLoans()">Show All</button> -->
 </div>
 <br><br>
 
 <div class="grid-container">
     <div class="grid-item">
-      <div *ngFor="let item of Applicantarray.reverse()" class="image-container">
+        <div *ngFor="let item of filteredApplicantarray.reverse()" class="image-container">
         <table [ngClass]="item.loanStatus === 'approved' ? 'adminLoanGrid1' : 'adminLoanGrid2'">
           <tbody>
             <tr>
-              <!-- Use width and text-align to adjust the column size and alignment -->
               <td style="width: 15%; text-align: left;">Applicant name:</td>
               <td style="width: 15%; text-align: left;">{{ item.applicantName }}</td>
               <td style="width: 15%; text-align: left;">Applicant Address:</td>
@@ -22,7 +21,7 @@
               <td style="width: 15%; text-align: left;">{{ item.applicantEmail }}</td>
             </tr>
             <tr>
-              <!-- Use width and text-align to adjust the column size and alignment -->
+     
               <td style="width: 15%; text-align: left;">Applicant phone no:</td>
               <td style="width: 15%; text-align: left;">{{ item.applicantMobile }}</td>
               <td style="width: 15%; text-align: left;">Applicant Addhaar:</td>
