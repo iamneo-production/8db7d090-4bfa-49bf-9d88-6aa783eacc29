@@ -1,0 +1,6 @@
+/home/coder/project/workspace/dotnetapp/WebApp/obj/Debug/net5.0/WebApp.csproj.AssemblyReference.cache
+/home/coder/project/workspace/dotnetapp/WebApp/obj/Debug/net5.0/WebApp.GeneratedMSBuildEditorConfig.editorconfig
+/home/coder/project/workspace/dotnetapp/WebApp/obj/Debug/net5.0/WebApp.AssemblyInfoInputs.cache
+/home/coder/project/workspace/dotnetapp/WebApp/obj/Debug/net5.0/WebApp.AssemblyInfo.cs
+/home/coder/project/workspace/dotnetapp/WebApp/obj/Debug/net5.0/WebApp.csproj.CoreCompileInputs.cache
+/home/coder/project/workspace/dotnetapp/WebApp/obj/Debug/net5.0/WebApp.MvcApplicationPartsAssemblyInfo.cache
