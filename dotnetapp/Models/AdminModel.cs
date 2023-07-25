@@ -12,9 +12,8 @@ namespace Loans.Models
         public String password { get; set; }
 
         public String mobileNumber { get; set; }
+
+        
         public String userRole { get; set; }
-
-
-        public String Token{get;set;}
     }
 }

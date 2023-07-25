@@ -168,8 +168,6 @@ namespace Admin.Controller
             {
                 return NotFound();
             }
-
-            // loanApplicant.loanId = loanApplicantModel.loanId;
             loanApplicant.loantype = loanApplicantModel.loantype;
             loanApplicant.applicantName = loanApplicantModel.applicantName;
             loanApplicant.applicantAddress = loanApplicantModel.applicantAddress;
@@ -211,192 +209,158 @@ namespace Admin.Controller
 
 
 
- /* [HttpPost("admin/approveLoan")]
-          public async Task<IActionResult> ApproveLoan(int loanId, int documentId)
-          {
-              var loanApplicant = await _context.LoanApplicant.FindAsync(loanId);
+//   [HttpPost("admin/approveLoan")]
+//           public async Task<IActionResult> ApproveLoan(int loanId, int documentId)
+//           {
+//               var loanApplicant = await _context.LoanApplicant.FindAsync(loanId);
 
-              if (loanApplicant == null)
-              {
-                  return NotFound();
-              }
-              var document = await _context.Document.FindAsync(documentId);
+//               if (loanApplicant == null)
+//               {
+//                   return NotFound();
+//               }
+//               var document = await _context.Document.FindAsync(documentId);
 
-              if (document == null)
-              {
-                  return NotFound();
-              }
-              Console.WriteLine(document.documentVerified);
+//               if (document == null)
+//               {
+//                   return NotFound();
+//               }
+//               Console.WriteLine(document.documentVerified);
 
-              if (loanApplicant.MonthlyEMI < int.Parse(loanApplicant.applicantSalary) && string.Compare(document.documentVerified, "Approved") == 0)
-              {
-                  loanApplicant.loanStatus = "Approved";
-                  await _context.SaveChangesAsync();
-                  return Ok("Approved");
-              }
-              loanApplicant.loanStatus = "Rejected";
-              await _context.SaveChangesAsync();
-              return NotFound("Rejected");
+//               if (loanApplicant.MonthlyEMI < int.Parse(loanApplicant.applicantSalary) && string.Compare(document.documentVerified, "Approved") == 0)
+//               {
+//                   loanApplicant.loanStatus = "Approved";
+//                   await _context.SaveChangesAsync();
+//                   return Ok("Approved");
+//               }
+//               loanApplicant.loanStatus = "Rejected";
+//               await _context.SaveChangesAsync();
+//               return NotFound("Rejected");
 
-          }
-          public enum DocumentType
-          {
-              AadharCard,
-              PanCard,
-              PaySlip,
-              BankStatement
-
-
-          }
-
-          public enum DocumentStatus
-          {
-              Approved,
-              Rejected,
-
-          }
-        [HttpPost("admin/verifyDocuments")]
-        public async Task<IActionResult> VerifyDocuments(int documentId)
-        {
-            var document = await _context.Document.FindAsync(documentId);
-
-            if (document == null)
-            {
-                return NotFound();
-            }
-
-            if (string.Compare(document.documenttype, Convert.ToString(DocumentType.AadharCard)) == 0)
-            {
-
-                document.documentVerified = Convert.ToString(DocumentStatus.Approved);
-
-            }
-            else if (string.Compare(document.documenttype, Convert.ToString(DocumentType.PanCard)) == 0)
-            {
-                document.documentVerified = Convert.ToString(DocumentStatus.Approved);
-
-            }
-            else if (string.Compare(document.documenttype, Convert.ToString(DocumentType.PaySlip)) == 0)
-            {
-
-                document.documentVerified = Convert.ToString(DocumentStatus.Approved);
-
-            }
-            else if (string.Compare(document.documenttype, Convert.ToString(DocumentType.BankStatement)) == 0)
-            {
-
-                document.documentVerified = Convert.ToString(DocumentStatus.Approved);
-            }
-
-            else
-            {
-
-                document.documentVerified = Convert.ToString(DocumentStatus.Rejected);
-
-            }
-            await _context.SaveChangesAsync();
-            return NotFound(Convert.ToString(document.documentVerified));*/
+//           }
+//           public enum DocumentType
+//           {
+//               AadharCard,
+//               PanCard,
+//               PaySlip,
+//               BankStatement
 
 
-/* [HttpPut("admin/editLoan/{loanId}")]
- public async Task<IActionResult> EditLoan(int loanId)
- {
-     var loanApplicant = await _context.LoanApplicant.FindAsync(loanId);
+//           }
 
-     if (loanApplicant == null)
-     {
-         return NotFound();
-     }
+//           public enum DocumentStatus
+//           {
+//               Approved,
+//               Rejected,
 
-     if (int.Parse(loanApplicant.applicantSalary) - 5000 < loanApplicant.MonthlyEMI && string.Compare(loanApplicant.loanStatus, "Approved") == 0)
-     {
-         loanApplicant.loanStatus = "Rejected";
-         await _context.SaveChangesAsync();
+//           }
+//         [HttpPost("admin/verifyDocuments")]
+//         public async Task<IActionResult> VerifyDocuments(int documentId)
+//         {
+//             var document = await _context.Document.FindAsync(documentId);
 
-     }
-     return Ok("Loan Edited");
- }
- [HttpDelete]
- [Route("api/admin/deleteLoan/{loanId}")]
- public async Task<IActionResult> DeleteLoan(int loanId)
- {
-     var loanApplicant = await _context.LoanApplicant.FindAsync(loanId);
-     if (loanApplicant == null)
-     {
-         return NotFound();
-     }
-     _context.LoanApplicant.Remove(loanApplicant);
-     await _context.SaveChangesAsync();
+//             if (document == null)
+//             {
+//                 return NotFound();
+//             }
 
-     return Ok("Loan Deleted");
- }
+//             if (string.Compare(document.documenttype, Convert.ToString(DocumentType.AadharCard)) == 0)
+//             {
+
+//                 document.documentVerified = Convert.ToString(DocumentStatus.Approved);
+
+//             }
+//             else if (string.Compare(document.documenttype, Convert.ToString(DocumentType.PanCard)) == 0)
+//             {
+//                 document.documentVerified = Convert.ToString(DocumentStatus.Approved);
+
+//             }
+//             else if (string.Compare(document.documenttype, Convert.ToString(DocumentType.PaySlip)) == 0)
+//             {
+
+//                 document.documentVerified = Convert.ToString(DocumentStatus.Approved);
+
+//             }
+//             else if (string.Compare(document.documenttype, Convert.ToString(DocumentType.BankStatement)) == 0)
+//             {
+
+//                 document.documentVerified = Convert.ToString(DocumentStatus.Approved);
+//             }
+
+//             else
+//             {
+
+//                 document.documentVerified = Convert.ToString(DocumentStatus.Rejected);
+
+//             }
+//             await _context.SaveChangesAsync();
+//             return NotFound(Convert.ToString(document.documentVerified));*/
 
 
- [HttpGet("admin/RepaymentSchedule/{loanId}")]
- public async Task<IActionResult> GetMonthlyEMI(int loanId)
- {
-     // Retrieve the LoanApplicantModel from the database using the loanId
-     var loanApplicant = await _context.LoanApplicant.FindAsync(loanId);
+//  [HttpGet("admin/RepaymentSchedule/{loanId}")]
+//  public async Task<IActionResult> GetMonthlyEMI(int loanId)
+//  {
+//      // Retrieve the LoanApplicantModel from the database using the loanId
+//      var loanApplicant = await _context.LoanApplicant.FindAsync(loanId);
 
-     if (loanApplicant == null)
-     {
-         return NotFound();
-     }
+//      if (loanApplicant == null)
+//      {
+//          return NotFound();
+//      }
 
-     string loanAmountRequired = loanApplicant.loanAmountRequired;
-     string loanRepayMonths = loanApplicant.loanRepaymentMonths;
-     string salary = loanApplicant.applicantSalary;
+//      string loanAmountRequired = loanApplicant.loanAmountRequired;
+//      string loanRepayMonths = loanApplicant.loanRepaymentMonths;
+//      string salary = loanApplicant.applicantSalary;
 
-     decimal loanAmount = Convert.ToDecimal(loanAmountRequired);
-     int loanMonths = Convert.ToInt32(loanRepayMonths);
-     decimal applicantsalary = Convert.ToDecimal(salary);
+//      decimal loanAmount = Convert.ToDecimal(loanAmountRequired);
+//      int loanMonths = Convert.ToInt32(loanRepayMonths);
+//      decimal applicantsalary = Convert.ToDecimal(salary);
 
-     decimal totalRepaymentAmount = loanMonths * applicantsalary;
-     decimal interestAmount = totalRepaymentAmount - loanAmount;
-     decimal monthlyInterestRate = (interestAmount / loanAmount) / loanMonths / 100;
-     decimal emi = loanAmount * monthlyInterestRate *
-                   (decimal)Math.Pow(1 + (double)monthlyInterestRate, loanMonths) /
-                   ((decimal)Math.Pow(1 + (double)monthlyInterestRate, loanMonths) - 1);
+//      decimal totalRepaymentAmount = loanMonths * applicantsalary;
+//      decimal interestAmount = totalRepaymentAmount - loanAmount;
+//      decimal monthlyInterestRate = (interestAmount / loanAmount) / loanMonths / 100;
+//      decimal emi = loanAmount * monthlyInterestRate *
+//                    (decimal)Math.Pow(1 + (double)monthlyInterestRate, loanMonths) /
+//                    ((decimal)Math.Pow(1 + (double)monthlyInterestRate, loanMonths) - 1);
 
-     loanApplicant.MonthlyEMI = emi;
+//      loanApplicant.MonthlyEMI = emi;
 
-     await _context.SaveChangesAsync();
+//      await _context.SaveChangesAsync();
 
-     return Ok(loanApplicant);
- }
- [HttpPut("admin/editRepaymentSchedule/{loanId}")]
- public async Task<IActionResult> EditRepaymentSchedule(int loanId, [FromBody] LoanApplicantModel loanApplicantModel)
- {
-     var editEmi = await _context.LoanApplicant.FindAsync(loanId);
-     if (editEmi == null)
-     {
-         return BadRequest("Monthly EMI not generated");
-     }
-     editEmi.MonthlyEMI = loanApplicantModel.MonthlyEMI;
-     _context.LoanApplicant.Update(editEmi);
-     await _context.SaveChangesAsync();
+//      return Ok(loanApplicant);
+//  }
+//  [HttpPut("admin/editRepaymentSchedule/{loanId}")]
+//  public async Task<IActionResult> EditRepaymentSchedule(int loanId, [FromBody] LoanApplicantModel loanApplicantModel)
+//  {
+//      var editEmi = await _context.LoanApplicant.FindAsync(loanId);
+//      if (editEmi == null)
+//      {
+//          return BadRequest("Monthly EMI not generated");
+//      }
+//      editEmi.MonthlyEMI = loanApplicantModel.MonthlyEMI;
+//      _context.LoanApplicant.Update(editEmi);
+//      await _context.SaveChangesAsync();
 
-     return Ok(new
-     {
-         Message = "Emi edited"
+//      return Ok(new
+//      {
+//          Message = "Emi edited"
 
-     });
- }
- [HttpDelete("admin/deleteRepaymentSchedule/{loanId}")]
- public async Task<IActionResult> deleteRepaymentSchedule(int loanId, [FromBody] LoanApplicantModel loanApplicantModel)
- {
-     var editEmi = await _context.LoanApplicant.FindAsync(loanId);
-     if (editEmi == null)
-     {
-         return BadRequest("Monthly EMI not generated");
-     }
-     editEmi.MonthlyEMI = loanApplicantModel.MonthlyEMI;
-     _context.LoanApplicant.Remove(editEmi);
-     await _context.SaveChangesAsync();
+//      });
+//  }
+//  [HttpDelete("admin/deleteRepaymentSchedule/{loanId}")]
+//  public async Task<IActionResult> deleteRepaymentSchedule(int loanId, [FromBody] LoanApplicantModel loanApplicantModel)
+//  {
+//      var editEmi = await _context.LoanApplicant.FindAsync(loanId);
+//      if (editEmi == null)
+//      {
+//          return BadRequest("Monthly EMI not generated");
+//      }
+//      editEmi.MonthlyEMI = loanApplicantModel.MonthlyEMI;
+//      _context.LoanApplicant.Remove(editEmi);
+//      await _context.SaveChangesAsync();
 
-     return Ok(new
-     {
-         Message = "Emi deleted"
+//      return Ok(new
+//      {
+//          Message = "Emi deleted"
 
-     });
- }*/
+//      });
+//  }

@@ -16,6 +16,8 @@ namespace Loans.Data
         public DbSet<LoanApplicantModel> LoanApplicant { get; set; }
         public DbSet<DocumentModel> Document { get; set; }
         public DbSet<AdminModel> Admin { get; set; }
+     
+       
       
 
     }

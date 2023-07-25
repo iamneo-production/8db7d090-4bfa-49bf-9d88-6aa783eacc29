@@ -18,8 +18,7 @@ namespace dotnetapp.Migrations
                     email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     mobileNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    userRole = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Token = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    userRole = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

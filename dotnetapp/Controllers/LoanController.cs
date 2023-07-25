@@ -6,14 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.IO;
 
-namespace Loan.Controller
+namespace loan.Controller
 {
 
     [ApiController]
-    public class LoanController : ControllerBase
+    public class loanController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        public LoanController(ApplicationDbContext applicationdbcontext)
+        public loanController(ApplicationDbContext applicationdbcontext)
         {
             _context = applicationdbcontext;
         }
