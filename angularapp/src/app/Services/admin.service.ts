@@ -11,7 +11,7 @@ export class AdminService {
 
   constructor(private http:HttpClient) { }
 
-  private baseUrl:string="https://8080-ededcfcebccebccbdddbcadfdcbadbeccadadabbe.project.examly.io";
+  private baseUrl:string="https://8080-abcaeaefcdddbcadfdcbadbeccadadabbe.project.examly.io";
 
   getAllLoan() : Observable<any>{
     return this.http.get(`${this.baseUrl}/admin/getAllLoans`);
