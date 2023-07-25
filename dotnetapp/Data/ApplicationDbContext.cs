@@ -1,8 +1,8 @@
-﻿using Loan.Models;
+using Loans.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace Loan.Data
+namespace Loans.Data
 {
     public class ApplicationDbContext : DbContext
     {

@@ -6,10 +6,14 @@ describe('AdmindashboardComponent', () => {
   let component: AdmindashboardComponent;
   let fixture: ComponentFixture<AdmindashboardComponent>;
 
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ AdmindashboardComponent ]
+    })
+    .compileComponents();
+  });
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [AdmindashboardComponent]
-    });
     fixture = TestBed.createComponent(AdmindashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

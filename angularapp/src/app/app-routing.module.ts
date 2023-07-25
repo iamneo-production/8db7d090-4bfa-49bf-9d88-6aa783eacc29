@@ -9,18 +9,21 @@ import { AdminappliedloanComponent } from './Components/admin/adminappliedloan/a
 import { AdmindashboardComponent } from './Components/admin/admindashboard/admindashboard.component';
 import { UserdashboardComponent } from './Components/user/userdashboard/userdashboard.component';
 import { AdminapprovedloanComponent } from './Components/admin/adminapprovedloan/adminapprovedloan.component';
+import { DocumentComponent } from './Components/user/customerapplyloan/document/document.component';
+import { AuthGuard } from './Guards/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'user/addLoan',component:CustomerapplyloanComponent},
-  {path:'user/viewLoan',component:CustomerloanstatusComponent},
-  {path:'user/getProfile',component:CustomerprofileComponent},
-  {path:'user',component:UserdashboardComponent},
-  {path:'admin/getAllLoans',component:AdminappliedloanComponent},
-  {path:'admin/getAllloans',component:AdminapprovedloanComponent},
-  {path:'admin',component:AdmindashboardComponent},
+  {path:'user/addLoan',component:CustomerapplyloanComponent,canActivate:[AuthGuard]},
+  {path:'user/viewLoan',component:CustomerloanstatusComponent,canActivate:[AuthGuard]},
+  {path:'user/getProfile',component:CustomerprofileComponent,canActivate:[AuthGuard]},
+  {path:'user',component:UserdashboardComponent,canActivate:[AuthGuard]},
+  {path:'admin/getAllLoans',component:AdminappliedloanComponent,canActivate:[AuthGuard]},
+  {path:'admin/GetAllLoans',component:AdminapprovedloanComponent,canActivate:[AuthGuard]},
+  {path:'admin',component:AdmindashboardComponent,canActivate:[AuthGuard]},
+  {path:'addDocuments',component:DocumentComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({

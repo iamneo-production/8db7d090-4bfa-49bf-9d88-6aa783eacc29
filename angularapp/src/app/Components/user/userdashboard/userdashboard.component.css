@@ -1,34 +1,17 @@
-nav {
-    background-color: blue;
-    
-}
-ul {
-    list-style-type: none;
-}
-  
-li {
-    display: inline;
-}
-  
-li a {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    padding:10px;
-    font-size:18px;
-}
-li a:hover{
-    background-color:red;
-    color:black;
+.bg-green {
+    background-color: green;
 }
 
-#logout{
-    margin-left: 65%;
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
 }
-nav ul li a.active{
-    background-color: aqua;
-    color: black;
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    font-size:1.5em;
 }
-.ele{
-    font-size:20px;
+
+.App-name{
+    font-size:3ch;
+    font-weight: bolder;
+    color: white;
 }

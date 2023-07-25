@@ -1,28 +1,12 @@
-nav {
-    background-color: blue;
+.bg-green {
+    background-color: green;
 }
-ul {
-    list-style-type: none;
-}
-  
-li {
-    display: inline;
-}
-  
-li a {
-    display: inline-block;
+
+.navbar-dark .navbar-nav .nav-link {
     color: white;
-    text-decoration: none;
-    padding:10px;
+    font-weight: bolder;
 }
-li a:hover{
-    background-color:green;
-    color:orange;
-}
-#logout{
-    margin-left:70%; 
-}
-nav ul li a.active{
-    background-color: aqua;
-    color: black;
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    font-size: 1.2em;
 }

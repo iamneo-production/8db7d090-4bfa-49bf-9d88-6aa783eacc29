@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
-namespace Loan.Models
+namespace Loans.Models
 {
     public class LoginModel
     { 

@@ -1,31 +1,63 @@
 import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  private adminloginurl:string="https://localhost:7059/admin/login"
-  private adminsignupurl:string="https://localhost:7059/admin/signup"
-  private userloginurl:string="https://localhost:7059/user/login"
-  private usersignupurl:string="https://localhost:7059/user/signup"
-  private applyloanurl:string="https://localhost:7059/user/addLoan"
-  constructor(private http:HttpClient) { }
+  
+  private loginurl:string="https://8080-ededcfcebccebccbdddbcadfdcbadbeccadadabbe.project.examly.io"
+  private adminsignupurl:string="https://8080-ededcfcebccebccbdddbcadfdcbadbeccadadabbe.project.examly.io"
+  private usersignupurl:string="https://8080-ededcfcebccebccbdddbcadfdcbadbeccadadabbe.project.examly.io"
+  
+  constructor(private http:HttpClient,private router:Router) { }
   adminsignup(adminobj:any){
-    return this.http.post<any>(`${this.adminsignupurl}`,adminobj);
-  }
+    return this.http.post<any>(`${this.adminsignupurl}/admin/signup`,adminobj);
+  } 
 
    usersignup(userobj:any){
-     return this.http.post<any>(`${this.usersignupurl}`,userobj);
+     return this.http.post<any>(`${this.usersignupurl}/user/signup`,userobj);
   }
 
-   adminlogin(adminobj:any ){
-    return this.http.post<any>(`${this.adminloginurl}`,adminobj);
+  login(loginobj:any ){
+    return this.http.post<any>(`${this.loginurl}/login`,loginobj);
   }
-  userlogin(loginobj:any ){
-       return this.http.post<any>(`${this.userloginurl}`,loginobj);
+ 
+
+  storeToken(tokenValue: string){
+    localStorage.setItem('token',tokenValue);
   }
-  applyloans(loanobj:any){
-    return this.http.post<any>(`${this.applyloanurl}`,loanobj);
+  signout(){
+    localStorage.clear();
+    this.router.navigate(['login']);
   }
+  getToken(){
+    return localStorage.getItem('token');
+  }
+  isLoggedIn():boolean{
+    return !!localStorage.getItem('token')
+  }
+  decodedToken() {
+    const jwtHelper = new JwtHelperService();
+    const token = this.getToken();
+  
+    if (token) {
+      return jwtHelper.decodeToken(token);
+    }
+  }
+  
+  getID(){
+    const x=this.decodedToken();
+    return x['nameid'];
+  }
+  getRole(){
+    const x=this.decodedToken();
+    return x['role'];
+  }
+
+ getEmail(){
+  const x=this.decodedToken();
+  return x['EmailId'];
+ }
 }

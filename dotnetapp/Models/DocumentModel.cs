@@ -1,17 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
 
-namespace Loan.Models
-{
-    public class DocumentModel
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
+
+namespace Loans.Models
     {
-        //internal int loanId;
+        public class DocumentModel
+        {
+            [Key]
+            public int documentId { get; set; }
 
-        [Key]
-        public int documentId { get; set; }
+            
+            public string documenttype { get; set; }
 
-        public string documenttype { get; set; }
+            [NotMapped]
+            public IFormFile DocumentUploads { get; set; }
 
         public byte[] documentupload { get; set; }
-        public bool Verified { get; internal set; }
+
+            public string documentVerified { get; set; }
+        }
     }
-}

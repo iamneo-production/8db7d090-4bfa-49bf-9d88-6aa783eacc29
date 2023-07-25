@@ -6,10 +6,14 @@ describe('AdminappliedloanComponent', () => {
   let component: AdminappliedloanComponent;
   let fixture: ComponentFixture<AdminappliedloanComponent>;
 
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ AdminappliedloanComponent ]
+    })
+    .compileComponents();
+  });
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [AdminappliedloanComponent]
-    });
     fixture = TestBed.createComponent(AdminappliedloanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

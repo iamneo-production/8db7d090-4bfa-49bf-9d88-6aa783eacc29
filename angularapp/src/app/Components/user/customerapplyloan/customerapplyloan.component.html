@@ -1,48 +1,68 @@
 <app-userdashboard></app-userdashboard>
-<div>
-    <form [formGroup]="applyForm">
-    <input type="text" id="enterName" name="Name" placeholder="Enter Applicant Name" formControlName="Name"><br>
-    <span *ngIf="applyForm.controls['Name'].invalid && applyForm.controls['Name'].touched">Name is Required <br></span>
-    <input type="text" id="enterAddress" placeholder="Enter Applicant Address" name="Address" formControlName="Address"><br>
-    <span *ngIf="applyForm.controls['Address'].invalid && applyForm.controls['Address'].touched">Address is Required<br></span>
-    <input type="number" id="enterMobile" placeholder="Enter Applicant Mobile" min="0" max="9" name="Mobilenumber" formControlName="Mobilenumber"><br>
-    <span>
-            <span *ngIf="applyForm.controls['Mobilenumber'].touched &&applyForm.hasError('required','Mobilenumber')">Number is Required<br></span>
-            <span *ngIf="applyForm.controls['Mobilenumber'].touched &&applyForm.hasError('minLength','Mobilenumber')">Invalid Format<br></span>
-    </span>
-    <input type="text" id="enterEmail" placeholder="Enter Applicant Email Id" name="email"  formControlName="email"><br>
-    <span>
-           <span *ngIf="applyForm.controls['email'].touched &&applyForm.hasError('required','email')">Email is required <br></span>
-           <span *ngIf="applyForm.controls['email'].touched &&applyForm.hasError('required','email')" >Invalid email format <br></span>
-    </span>
-    <input type="number" id="enterAadharNo" placeholder="Enter Applicant Aadhaar No" min="0" max="9" name="Aadhaar" formControlName="Aadhaar"/><br>
-    <span>
-          <span *ngIf="applyForm.controls['Aadhaar'].touched &&applyForm.hasError('required','Aadhaar')">Aadhaar No is Required<br></span> 
-          <span *ngIf="applyForm.controls['Aadhaar'].touched &&applyForm.hasError('required','minLength')">Invalid Number Format<br></span>   
-          <span *ngIf="applyForm.controls['Aadhaar'].touched &&applyForm.hasError('required','maxLength')">Invalid Number Format<br></span>
-    </span>
-    <input type="text" id="enterPanNo" placeholder="Enter Applicant PAN no" name="PAN" formControlName="PAN"><br>
-    <span> 
-          <span *ngIf="applyForm.controls['PAN'].touched &&applyForm.hasError('required','PAN')">PAN is Mandatory<br></span>    
-          <span *ngIf="applyForm.controls['PAN'].touched &&applyForm.hasError('required','maxLength')">Invalid Format<br></span>
-    </span>
-    <input type="number" id="enterSalary" placeholder="Enter Applicant Salary" name="Salary" formControlName="Salary" min="0" max="9"><br>
-    <span *ngIf="applyForm.controls['Salary'].touched && applyForm.hasError('required','Salary')" >Required Field<br></span>
-    <input type="number" id="enterAmount" placeholder="Enter Loan Amount Required" name="loanamt" formControlName="loanamt" min="0" max="9"><br>
-    <span *ngIf="applyForm.controls['loanamt'].touched && applyForm.hasError('required','loanamt')" > Required Field<br></span>
-    <input type="number" id="enterMonths" placeholder="Enter loan repayment months" name="months" formControlName="months"><br>
-    <span *ngIf="applyForm.controls['months'].touched && applyForm.hasError('required','months')" >Month is Required<br></span>
 
-    <p>Upload documents (Mandatory *)</p>
-    <select name="documents" id="selectDocumentType">
-         <option value="none" selected disabled hidden>Pick a Document Type</option>
-         <option value="pdf">PDF</option>
-         <option value="doc">DOC</option>
-         <option value="img">IMG</option>
-    </select><br>
-    Images or Documents (Upload below 2mb)<br>
-    <input type="file" id="chosen" name="file" formControlName="file"><br>
-    <span *ngIf="applyForm.controls['file'].invalid && applyForm.controls['file'].touched">Mandatory <br></span><br>
-    <button (click)="applyloan()" id="apply">Apply</button>
-</form>
+<div class="container">
+  <form [formGroup]="applyForm">
+    <div class="form-group">
+      <label for="enterName">Applicant Name</label>
+      <input type="text" id="enterName" name="Name" placeholder="Enter Applicant Name" class="form-control" formControlName="applicantName">
+      <span *ngIf="applyForm.controls['applicantName'].touched && applyForm.hasError('required', 'applicantName')" class="text-danger">Name is Required</span>
+    </div>
+
+    <div class="form-group">
+      <label for="enterAddress">Applicant Address</label>
+      <input type="text" id="enterAddress" placeholder="Enter Applicant Address" class="form-control" name="Address" formControlName="applicantAddress">
+      <span *ngIf="applyForm.controls['applicantAddress'].invalid && applyForm.controls['applicantAddress'].touched" class="text-danger">Address is Required</span>
+    </div>
+
+    <div class="form-group">
+      <label for="enterMobile">Applicant Mobile</label>
+      <input type="text" id="enterMobile" placeholder="Enter Applicant Mobile" class="form-control" min="0" max="9" name="Mobilenumber" formControlName="applicantMobile">
+      <span *ngIf="applyForm.controls['applicantMobile'].touched &&applyForm.hasError('required','applicantMobile')" class="text-danger">Number is Required</span>
+      <span *ngIf="applyForm.controls['applicantMobile'].touched &&applyForm.hasError('pattern','applicantMobile')" class="text-danger">Invalid Format</span>
+    </div>
+
+    <div class="form-group">
+      <label for="enterEmail">Applicant Email</label>
+      <input type="text" id="enterEmail" placeholder="Enter Applicant Email Id" class="form-control" name="email" formControlName="applicantEmail">
+      <span *ngIf="applyForm.controls['applicantEmail'].touched &&applyForm.hasError('required','email')" class="text-danger">Email is required</span>
+      <span *ngIf="applyForm.controls['applicantEmail'].touched &&applyForm.hasError('email','applicantEmail')" class="text-danger">Invalid email format</span>
+    </div>
+
+    <div class="form-group">
+      <label for="enterAadharNo">Applicant Aadhaar No</label>
+      <input type="text" id="enterAadharNo" placeholder="Enter Applicant Aadhaar No" class="form-control" min="0" max="9" name="Aadhaar" formControlName="applicantAadhaar">
+      <span *ngIf="applyForm.controls['applicantAadhaar'].touched &&applyForm.hasError('required','applicantAadhaar')" class="text-danger">Aadhaar No is Required</span>
+      <span *ngIf="applyForm.controls['applicantAadhaar'].touched &&applyForm.hasError('minLength')" class="text-danger">Invalid Number Format</span>
+      <span *ngIf="applyForm.controls['applicantAadhaar'].touched &&applyForm.hasError('maxLength')" class="text-danger">Invalid Number Format</span>
+      <span *ngIf="applyForm.controls['applicantAadhaar'].touched &&applyForm.hasError('pattern','applicantAadhaar')" class="text-danger">Invalid Number Format</span>
+    </div>
+
+    <div class="form-group">
+      <label for="enterPanNo">Applicant PAN No</label>
+      <input type="text" id="enterPanNo" placeholder="Enter Applicant PAN No" class="form-control" name="PAN" formControlName="applicantPan">
+      <span *ngIf="applyForm.controls['applicantPan'].touched &&applyForm.hasError('required','applicantPan')" class="text-danger">PAN is Mandatory</span>
+      <span *ngIf="applyForm.controls['applicantPan'].touched &&applyForm.hasError('maxLength')" class="text-danger">Invalid Format</span>
+      <span *ngIf="applyForm.controls['applicantPan'].touched &&applyForm.hasError('pattern','applicantPan')" class="text-danger">Invalid Format</span>
+    </div>
+
+    <div class="form-group">
+      <label for="enterSalary">Applicant Salary</label>
+      <input type="text" id="enterSalary" placeholder="Enter Applicant Salary" class="form-control" name="Salary" formControlName="applicantSalary" min="0" max="9">
+      <span *ngIf="applyForm.controls['applicantSalary'].touched && applyForm.hasError('required','applicantSalary')" class="text-danger">Mandatory</span>
+    </div>
+
+    <div class="form-group">
+      <label for="enterAmount">Loan Amount Required</label>
+      <input type="text" id="enterAmount" placeholder="Enter Loan Amount Required" class="form-control" name="loanamt" formControlName="loanAmountRequired" min="0" max="9">
+      <span *ngIf="applyForm.controls['loanAmountRequired'].touched && applyForm.hasError('required','loanAmountRequired')" class="text-danger">Mandatory</span>
+    </div>
+
+    <div class="form-group">
+      <label for="enterMonths">Loan Repayment Months</label>
+      <input type="text" id="enterMonths" placeholder="Enter loan repayment months" class="form-control" name="months" formControlName="loanRepaymentMonths">
+      <span *ngIf="applyForm.controls['loanRepaymentMonths'].dirty && applyForm.hasError('required','loanRepaymentMonths')" class="text-danger">Mandatory</span>
+    </div>
+
+    <button (click)="applyloan()" type="submit" value="Apply" id="apply" class="btn btn-primary">Apply</button>
+  </form>
 </div>
