@@ -1,0 +1,74 @@
+/* div{
+    margin-top: 50px;
+    border: 2px solid green;
+    height: auto;
+    background-color:rgba(0, 255, 255, 0.542);
+    padding: 20px;
+    text-align: center;
+    
+}
+#enterName,#enterAddress,#chosen,#enterMobile,#enterEmail,#enterAadharNo,#enterPanNo,#enterSalary,#enterAmount,#enterMonths,#selectDocumentType{
+    width:30%;
+    margin-top: 10px;
+    height:30px;
+}
+#apply{
+    width: 60px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+input{
+    margin-bottom: 10px;
+}
+span{
+    color: rgb(243, 10, 10);
+} */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #ddd;
+  }
+  span{
+  color:rgb(142, 4, 4);
+  font-size: 17px;
+  margin-left: 25%;
+  font-weight: bold;
+  }
+  button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0069d9;
+  }
