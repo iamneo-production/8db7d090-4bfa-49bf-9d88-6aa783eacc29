@@ -3,10 +3,6 @@ import { Router } from '@angular/router';
 import { Validators,FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/Services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-// import {
-//   faEye,
-//   faEyeSlash,
-//   }from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,8 +17,6 @@ export class LoginComponent implements OnInit{
       password: ['', Validators.required]
     });
   }
-  // faEye = faEye;
-  // faEyeSlash = faEyeSlash;
   passType:string='password';
   showPass:boolean=false;
   EmailId:string;

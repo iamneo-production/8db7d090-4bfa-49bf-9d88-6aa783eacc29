@@ -12,7 +12,7 @@ export class LoanService {
 
   constructor(private http:HttpClient) { }
 
-  private baseUrl:string="https://localhost:7064";
+  private baseUrl:string="https://8080-ededcfcebccebccbdddbcadfdcbadbeccadadabbe.project.examly.io";
   
   addLoan(loanData: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/user/addLoan`, loanData);
@@ -26,10 +26,6 @@ export class LoanService {
     return this.http.get<applyLoan>(`${this.baseUrl}/user/viewLoan/${loanId}`);
   }
 
- /* viewLoan(loanId: string, loanData: any) : Observable<any>  {
-    return this.http.get(`${this.baseUrl}/user/viewLoan/${loanId}`,loanData);
-  } */
-
   deleteLoan(loanId: string): Observable<applyLoan> {
     return this.http.delete<applyLoan>(`${this.baseUrl}/user/deleteLoan/${loanId}`);
   }
@@ -42,16 +38,16 @@ export class LoanService {
     return this.http.get<docFormat>(`${this.baseUrl}/user/getDocuments/${documentid}`);
   }
 
-  // editDocuments(documentData: any):Observable<docFormat> {
-  //   return this.http.put<docFormat>(`${this.baseUrl}/user/editDocuments/${documentData.doc_id}`, documentData);
-  // }
+  editDocuments(documentData: any):Observable<docFormat> {
+    return this.http.put<docFormat>(`${this.baseUrl}/user/editDocuments/${documentData.doc_id}`, documentData);
+  }
 
   deleteDocuments(documentId: number) {
     return this.http.delete(`${this.baseUrl}/user/deleteDocuments/${documentId}`);
   }
 
   getProfile(data:string):Observable<signupForm>{
-    return this.http.get<signupForm>(`${this.baseUrl}/user/getProfile/${data}`);
+    return this.http.get<signupForm>(`${this.baseUrl}/user/GetProfile/${data}`);
   }
   editProfile(editUser:signupForm):Observable<signupForm> {
     return this.http.put<signupForm>(`${this.baseUrl}/user/editProfile/${editUser.id}`,editUser);

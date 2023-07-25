@@ -8,17 +8,14 @@ import { AdminService } from 'src/app/Services/admin.service';
   templateUrl: './adminapprovedloan.component.html',
   styleUrls: ['./adminapprovedloan.component.css']
 })
-export class AdminapprovedloanComponent implements OnInit{
-  constructor(private adminService:AdminService,private Http:HttpClient) {
-  }
-  searchQuery:string="";
-  getAllLoans:boolean=true;
+export class AdminapprovedloanComponent implements OnInit {
+  constructor(private adminService: AdminService, private Http: HttpClient) { }
 
+  searchQuery: string = "";
   Applicantarray: LoanApplicant[] = [];
-  item: LoanApplicant[] = [];
- 
-  
-  ngOnInit(): void{
+  filteredApplicantarray: LoanApplicant[] = [];
+
+  ngOnInit(): void {
     this.fetchAppliedLoans();
   }
 
@@ -26,30 +23,33 @@ export class AdminapprovedloanComponent implements OnInit{
     this.adminService.getAllLoan().subscribe(
       response => {
         console.log(response);
-        this.Applicantarray =response;
-        console.log(this.Applicantarray);
+        this.Applicantarray = response;
+        this.filteredApplicantarray = response;
       }
     );
   }
 
-  SearchbyId(){
-    this.adminService.SearchId(this.searchQuery).subscribe(
-      response => {
-        console.log(response);
-        this.Applicantarray =[response];
-        console.log(this.Applicantarray);
-      }
-    );
+  search() {
+    if (this.searchQuery) {
+      const searchQueryLower = this.searchQuery.toLowerCase();
+      const regex = new RegExp(searchQueryLower, 'i'); 
+  
+      this.filteredApplicantarray = this.Applicantarray.filter(item => {
+        return (
+          regex.test(item.loanId?.toString()) ||
+          regex.test(item.applicantName) ||
+          regex.test(item.applicantPan) ||
+          regex.test(item.applicantAddress) ||
+          regex.test(item.loanAmountRequired?.toString()) ||
+          regex.test(item.applicantEmail) ||
+          regex.test(item.applicantMobile)
+          
+        );
+      });
+    } else {
+   
+      this.filteredApplicantarray = this.Applicantarray;
+    }
   }
   
-  SearchbyName(){
-      this.adminService.SearchName(this.searchQuery).subscribe(
-      response => {
-        console.log(response);
-        this.Applicantarray =[response];
-        console.log(this.Applicantarray);
-      }
-    );
-  }
 }
-
