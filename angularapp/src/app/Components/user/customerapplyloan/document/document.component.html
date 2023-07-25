@@ -1,0 +1,29 @@
+<app-userdashboard></app-userdashboard>
+<div *ngIf="doc">
+  <form [formGroup]="documentForm" (ngSubmit)="onSubmit()" class="my-form mx-auto">
+    <p>Upload documents (Mandatory *)</p>
+    <div class="form-group">
+      <select name="documents" id="selectDocumentType" formControlName="documenttype" class="form-control">
+        <option value="" selected disabled hidden>Pick a Document Type</option>
+        <option value="pdf">PDF</option>
+        <option value="doc">DOC</option>
+        <option value="img">IMG</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <input type="file" formControlName="documentupload" (change)="onFileSelected($event)" class="form-control-file">
+    </div>
+  
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="showid">
+  <b><h2 style="text-align: center;margin-top: 20%;">Your Loan was Applied Successfully!</h2></b>
+  <br>
+  <h2 style="text-align: center;">Your loan id is {{loan_id}}</h2>
+</div>
+

@@ -1,0 +1,45 @@
+<div class="input"> 
+    <h1 style="color:rgb(16, 4, 105);text-align: center;">REGISTER</h1>
+    <br>
+      <form [formGroup]="SignupForm">
+        <select formControlName="userRole" id="admin/user">
+          <option value="">select</option>
+          <option  value="user">User</option>
+          <option  value="admin">Admin</option>
+        </select>
+        <small *ngIf="SignupForm.controls['userRole'].touched  && SignupForm.hasError('required','userRole')">userType is required</small>
+  
+        <input formControlName="email" type="email" placeholder="Email" id="email" />
+        <small *ngIf="SignupForm.controls['email'].touched && SignupForm.hasError('required','email')">Email is required</small>
+        <small *ngIf="SignupForm.controls['email'].touched && SignupForm.hasError('email','email')">Invalid Email</small>
+  
+        <input formControlName="username" type="text" placeholder="Username" id="username" />
+        <small *ngIf="SignupForm.controls['username'].touched && SignupForm.hasError('required','username')">user name is required</small>
+  
+        <input formControlName="mobilenumber" type="tel" placeholder="Mobile number" id="mobileNumber" />
+        <small *ngIf="SignupForm.controls['mobilenumber'].touched && SignupForm.hasError('required','mobilenumber')">mobile Number is required</small>
+        <div class="input-container">
+          <input type="{{passType}}" id="password" name="password" placeholder="Enter Password" formControlName="password" >
+               <span class="password-toggle-icon-p" (click)="toggle()" *ngIf="!showPass" id="faicon">
+                <i class="fa-solid fa-eye-slash"></i>
+               </span>
+               <span class="password-toggle-icon-p" (click)="toggle()" *ngIf="showPass" id="faicon">
+                <i class="fa-solid fa-eye"></i>
+               </span>
+        </div>
+        <small *ngIf="SignupForm.controls['password'].touched && SignupForm.hasError('required','password')">password is required</small>
+        
+        <div class="input-container">
+          <input type="{{confirmPassType}}" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" formControlName="confirmpassword">
+          <span class="password-toggle-icon-cp" (click)="toggleConfirmPass()" *ngIf="!showConfirmPass">
+            <i class="fa-solid fa-eye-slash"></i>
+           </span>
+           <span class="password-toggle-icon-cp" (click)="toggleConfirmPass()" *ngIf="showConfirmPass">
+             <i class="fa-solid fa-eye"></i>
+           </span>
+        </div>          
+       <small *ngIf="SignupForm.controls['confirmpassword'].dirty && SignupForm.get('confirmpassword')?.hasError('passwordMismatch')">password Does not Match</small>
+      </form>
+    <button (click)="onsignup()" type="submit" id="submitButton">Submit</button>
+    <p class="message" style="color:rgb(255, 255, 255)">Already registered? <a routerLink="/login" id="signinLink">Login</a></p>
+  </div> 
