@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   
-  private loginurl:string="https://8080-ededcfcebccebccbdddbcadfdcbadbeccadadabbe.project.examly.io"
-  private adminsignupurl:string="https://8080-ededcfcebccebccbdddbcadfdcbadbeccadadabbe.project.examly.io"
-  private usersignupurl:string="https://8080-ededcfcebccebccbdddbcadfdcbadbeccadadabbe.project.examly.io"
+  private loginurl:string="https://8080-cbdfffdfaeafeddbcadfdcbadbeccadadabbe.project.examly.io"
+  private adminsignupurl:string="https://8080-cbdfffdfaeafeddbcadfdcbadbeccadadabbe.project.examly.io"
+  private usersignupurl:string="https://8080-cbdfffdfaeafeddbcadfdcbadbeccadadabbe.project.examly.io"
   
   constructor(private http:HttpClient,private router:Router) { }
   adminsignup(adminobj:any){
