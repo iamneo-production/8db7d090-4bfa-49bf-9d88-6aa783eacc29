@@ -15,7 +15,7 @@ import { AdmindashboardComponent } from './Components/admin/admindashboard/admin
 import { UserdashboardComponent } from './Components/user/userdashboard/userdashboard.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { DocumentComponent } from './Components/user/customerapplyloan/document/document.component';
 import { ToastrModule, ToastNoAnimationModule } from 'ngx-toastr';
 
@@ -38,7 +38,7 @@ import { ToastrModule, ToastNoAnimationModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule, BrowserAnimationsModule,HttpClientModule,ReactiveFormsModule, CommonModule,
-    FormsModule, FontAwesomeModule,
+    FormsModule, 
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot()
   ],
