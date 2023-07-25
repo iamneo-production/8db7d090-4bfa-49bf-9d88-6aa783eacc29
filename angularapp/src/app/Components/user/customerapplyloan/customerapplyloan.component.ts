@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-//import { ToastrService } from 'ngx-toastr';
 import { LoanService } from 'src/app/Services/loan.service';
 
 
@@ -37,7 +36,7 @@ export class CustomerapplyloanComponent implements OnInit {
       this.loan.addLoan(this.applyForm.value).subscribe({
         next: (res => {
           this.applyForm.reset();
-         // this.notif.success(res.message);
+          //this.notif.success(res.message);
           this.router.navigate(['user/addDocuments']);
         }),
         error: (err => {
