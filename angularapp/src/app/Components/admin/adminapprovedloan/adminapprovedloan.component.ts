@@ -43,7 +43,7 @@ export class AdminapprovedloanComponent implements OnInit {
           regex.test(item.loanAmountRequired?.toString()) ||
           regex.test(item.applicantEmail) ||
           regex.test(item.applicantMobile)
-          
+           
         );
       });
     } else {
