@@ -2,7 +2,7 @@ using Loans.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace Loans.Data
+namespace Loans.Context
 {
     public class ApplicationDbContext : DbContext
     {
