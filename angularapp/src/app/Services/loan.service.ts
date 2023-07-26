@@ -12,7 +12,7 @@ export class LoanService {
 
   constructor(private http:HttpClient) { }
 
-  private baseUrl:string="https://localhost:7064";
+  private baseUrl:string="https://8080-efbcbafddbcadfdcbadbeccadadabbe.project.examly.io";
   
   addLoan(loanData: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/user/addLoan`, loanData);

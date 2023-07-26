@@ -44,7 +44,7 @@ console.log(this.documentForm.value)
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data'); // Set the correct media type here
   
-    this.http.post('https://8080-ededcfcebccebccbdddbcadfdcbadbeccadadabbe.project.examly.io/user/addDocuments', formData, { headers }).subscribe(
+    this.http.post('https://8080-efbcbafddbcadfdcbadbeccadadabbe.project.examly.io/user/addDocuments', formData, { headers }).subscribe(
       (response) => {
         alert("Document Uploaded")
         this.showid=true;
