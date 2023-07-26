@@ -15,10 +15,7 @@ import { AdmindashboardComponent } from './Components/admin/admindashboard/admin
 import { UserdashboardComponent } from './Components/user/userdashboard/userdashboard.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-<<<<<<< HEAD
-//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-=======
->>>>>>> DotNet_Angular_AE_Business_Loan_2023-Muralikrishnangopi
+
 import { DocumentComponent } from './Components/user/customerapplyloan/document/document.component';
 import { ToastrModule, ToastNoAnimationModule } from 'ngx-toastr';
 
@@ -41,7 +38,7 @@ import { ToastrModule, ToastNoAnimationModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule, BrowserAnimationsModule,HttpClientModule,ReactiveFormsModule, CommonModule,
-    FormsModule,
+    FormsModule, 
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot()
   ],

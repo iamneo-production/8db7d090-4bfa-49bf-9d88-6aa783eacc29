@@ -23,11 +23,11 @@ const routes: Routes = [
   {path:'admin/getAllLoans',component:AdminappliedloanComponent,canActivate:[AuthGuard]},
   {path:'admin/GetAllLoans',component:AdminapprovedloanComponent,canActivate:[AuthGuard]},
   {path:'admin',component:AdmindashboardComponent,canActivate:[AuthGuard]},
-<<<<<<< HEAD
+
   {path:'addDocuments',component:DocumentComponent,canActivate:[AuthGuard]},
-=======
+
   {path:'user/addDocuments',component:DocumentComponent,canActivate:[AuthGuard]},
->>>>>>> DotNet_Angular_AE_Business_Loan_2023-Muralikrishnangopi
+
 ];
 
 @NgModule({
