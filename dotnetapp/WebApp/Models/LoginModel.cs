@@ -10,4 +10,3 @@ namespace Loans.Models
          public string password { get; set; }
         }
     }
-

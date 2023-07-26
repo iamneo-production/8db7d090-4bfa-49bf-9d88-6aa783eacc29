@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using System;
 namespace Loans.Models
 {
     public class LoanApplicantModel
@@ -28,5 +29,10 @@ namespace Loans.Models
         public string loanAmountRequired { get; set;}
 
         public string loanRepaymentMonths { get; set;}
+
+        public decimal MonthlyEMI { get;set;}
+
+        public string loanStatus { get; set; }
+
     }
 }
