@@ -1,0 +1,55 @@
+<app-admindashboard></app-admindashboard>
+<br><br>
+<div class="bar">
+    <input type="text" ngModel="searchQuery" placeholder="Enter Loan ID to Search">&nbsp;
+    <button (click)="SearchbyId()">SearchByID</button>&nbsp;
+    <button (click)="SearchbyName()">SearchByName</button>
+</div>
+<br><br>
+
+<div class="grid-container">
+    <div class="grid-item">
+      <div *ngFor="let item of Applicantarray.reverse()" class="image-container">
+        <table [ngClass]="item.loanStatus === 'approved' ? 'adminLoanGrid1' : 'adminLoanGrid2'">
+          <tbody>
+            <tr>
+              <!-- Use width and text-align to adjust the column size and alignment -->
+              <td style="width: 15%; text-align: left;">Applicant name:</td>
+              <td style="width: 15%; text-align: left;">{{ item.applicantName }}</td>
+              <td style="width: 15%; text-align: left;">Applicant Address:</td>
+              <td style="width: 25%; text-align: left;">{{ item.applicantAddress }}</td>
+              <td style="width: 15%; text-align: left;">Applicant Email:</td>
+              <td style="width: 15%; text-align: left;">{{ item.applicantEmail }}</td>
+            </tr>
+            <tr>
+              <!-- Use width and text-align to adjust the column size and alignment -->
+              <td style="width: 15%; text-align: left;">Applicant phone no:</td>
+              <td style="width: 15%; text-align: left;">{{ item.applicantMobile }}</td>
+              <td style="width: 15%; text-align: left;">Applicant Addhaar:</td>
+              <td style="width: 25%; text-align: left;">{{ item.applicantAadhaar }}</td>
+              <td style="width: 15%; text-align: left;">Applicant PAN no:</td>
+              <td style="width: 15%; text-align: left;">{{ item.applicantPan }}</td>
+            </tr>
+            <tr>
+              <!-- Use width and text-align to adjust the column size and alignment -->
+              <td style="width: 15%; text-align: left;">Loan amount:</td>
+              <td style="width: 15%; text-align: left;">{{ item.loanAmountRequired }}</td>
+              <td style="width: 15%; text-align: left;">Applicant Loan ID:</td>
+              <td style="width: 25%; text-align: left;">{{ item.loanId }}</td>
+              <td colspan="2" style="text-align:left;">
+
+                <ng-container *ngIf="item.loanStatus === 'approved'; else elseBlock">
+                  <span class="status approved">Approved</span>
+                </ng-container>
+                <ng-container *ngIf="item.loanStatus === 'rejected'; else elseBlock">
+                  <span class="status rejected">Rejected</span>
+                </ng-container>
+                <ng-template #elseBlock>
+                </ng-template>
+              </td>              
+            </tr>
+          </tbody>
+        </table>
+        <br><br><br><br>  
+      </div>
+ </div>
