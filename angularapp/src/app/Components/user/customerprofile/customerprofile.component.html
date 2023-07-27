@@ -1,0 +1,112 @@
+<app-userdashboard></app-userdashboard>
+
+<div class="container" *ngIf="show">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Mobile Number</th>
+        <th>Password</th>
+        <th>Confirm Password</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prof of profileData">
+        <td>{{ prof.email }}</td>
+        <td>{{ prof.userName }}</td>
+        <td>{{ prof.mobileNumber }}</td>
+        <td>{{ prof.password }}</td>
+        <td>{{ prof.confirmpassword }}</td>
+        <td>
+          <button (click)="onedit(prof);scrollPageToTop()" class="btn btn-primary" style="width: 65%;">Edit</button><br>
+          <button (click)="ondel()" class="btn btn-danger">Delete</button>
+        </td>
+      </tr> 
+    </tbody>
+  </table>
+</div>
+  
+
+
+<div class="container" *ngIf="display">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1 class="text-center" style="color:rgb(16, 4, 105);">Edit Your Details</h1>
+      <br>
+      <form [formGroup]="editUser">
+
+        <div class="form-group">
+          <label for="id">User ID   </label>
+          <input formControlName="id" type="number" class="form-control" id="id" readonly placeholder="User Id">
+        </div>
+
+
+        <div class="form-group">
+          <label for="userRole">User Role</label>
+          <select formControlName="userRole" id="userRole"  class="form-control">
+            <option value="">select</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+          <small *ngIf="editUser.controls['userRole'].touched && editUser.hasError('required', 'userRole')">User type is required</small>
+        </div>
+
+        <div class="form-group">  
+          <label for="email">Email</label>
+          <input formControlName="email" type="email" class="form-con trol" id="email" placeholder="Email">
+          <small *ngIf="editUser.controls['email'].touched && editUser.hasError('required', 'email')">Email is required</small>
+          <small *ngIf="editUser.controls['email'].touched && editUser.hasError('email', 'email')">Invalid Email</small>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input formControlName="userName" type="text" class="form-control" id="username" placeholder="Username">
+          <small *ngIf="editUser.controls['userName'].touched && editUser.hasError('required', 'userName')">Username is required</small>
+        </div>
+
+        <div class="form-group">
+          <label for="mobilenumber">Mobile Number</label>
+          <input formControlName="mobileNumber" type="tel" class="form-control" id="mobileNumber" placeholder="Mobile Number">
+          <small *ngIf="editUser.controls['mobileNumber'].touched && editUser.hasError('required', 'mobileNumber')">Mobile Number is required</small>
+          <small *ngIf="editUser.controls['applicantMobile'].touched && editUser.hasError('pattern','applicantMobile')" class="text-danger">Invalid Format</small>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-group">
+            <input formControlName="password" type="{{passType}}" class="form-control" id="password" placeholder="Enter Password">
+            <div class="input-group-append">
+              <span class="input-group-text password-toggle-icon-p" (click)="toggle()" *ngIf="!showPass">
+                <i><fa-icon [icon]="faEyeSlash"></fa-icon></i>
+              </span>
+              <span class="input-group-text password-toggle-icon-p" (click)="toggle()" *ngIf="showPass">
+                <i><fa-icon [icon]="faEye"></fa-icon></i>
+              </span>
+            </div>
+          </div>
+          <small *ngIf="editUser.controls['password'].touched && editUser.hasError('required', 'password')">Password is required</small>
+        </div>
+  
+        <div class="form-group">
+          <label for="confirmpassword">Confirm Password</label>
+          <div class="input-group">
+            <input formControlName="confirmpassword" type="{{confirmPassType}}" class="form-control" id="confirmpassword" placeholder="Confirm Password">
+            <div class="input-group-append">
+              <span class="input-group-text password-toggle-icon-cp" (click)="toggleConfirmPass()" *ngIf="!showConfirmPass">
+                <i><fa-icon [icon]="faEyeSlash"></fa-icon></i>
+              </span>
+              <span class="input-group-text password-toggle-icon-cp" (click)="toggleConfirmPass()" *ngIf="showConfirmPass">
+                <i><fa-icon [icon]="faEye"></fa-icon></i>
+              </span>
+            </div>
+          </div>
+          <small *ngIf="editUser.controls['confirmpassword'].dirty && editUser.get('confirmpassword')?.hasError('passwordMismatch')">Password does not match</small>
+        </div>
+      </form>
+      <button (click)="onupdate()" type="submit" class="btn btn-primary">Update</button>
+    </div>
+  </div>
+</div>
+  

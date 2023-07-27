@@ -1,0 +1,79 @@
+
+.login-box {
+    color: white;
+    width: 350px;
+    background-color:rgb(89, 153, 151);
+    padding: 20px;
+    margin: 100px auto;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0);
+    }
+    
+h1 {
+text-align: center;
+margin-top: 0px;
+}
+    
+form {
+display: flex;
+flex-direction: column;
+}
+    
+label {
+font-size: 20px;
+margin-bottom: 8px;
+}
+ #email {
+padding: 10px;
+margin-bottom: 20px;
+border: none;
+border-radius: 5px;
+}
+    
+#password{
+padding: 10px;
+margin-bottom: 20px;
+border: none;
+border-radius: 5px;
+width: 100%;
+}
+
+span{
+    font-size: larger;
+}
+    
+#btn {
+    background-color: #0c0a92;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    #btn:hover {
+    background-color: #0032e7;
+    }
+    p{
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    a{
+        text-decoration: none;
+        color: rgb(0, 34, 255);
+    }
+    a:hover{
+       text-decoration: none;
+       background-color:green;
+    }
+   .input-container{
+    position: relative;
+
+   }
+   .password-toggle-icon{
+    position: absolute;
+    top: 20%;
+    cursor: pointer;
+    right:10px;
+    color: black;
+   }
