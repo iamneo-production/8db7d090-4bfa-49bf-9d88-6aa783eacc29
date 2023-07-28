@@ -15,12 +15,8 @@ import { AdmindashboardComponent } from './Components/admin/admindashboard/admin
 import { UserdashboardComponent } from './Components/user/userdashboard/userdashboard.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { DocumentComponent } from './Components/user/customerapplyloan/document/document.component';
 import { ToastrModule, ToastNoAnimationModule } from 'ngx-toastr';
-
-//import {MatIconModule} from '@angular/material/icon';
-//import { library } from '@fortawesome/fontawesome-svg-core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +35,7 @@ import { ToastrModule, ToastNoAnimationModule } from 'ngx-toastr';
     BrowserModule,
     AppRoutingModule,FormsModule, BrowserAnimationsModule,HttpClientModule,ReactiveFormsModule, CommonModule,
     FormsModule, 
+
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot()
   ],
