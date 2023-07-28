@@ -25,18 +25,9 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-
               "src/styles.css"
             ],
-<<<<<<< HEAD
-            "scripts": [   
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-=======
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-
->>>>>>> DotNet_Angular_AE_Business_Loan_2023-Muralikrishnangopi
-            ]
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
@@ -102,13 +93,8 @@
 
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-<<<<<<< HEAD
-=======
-
->>>>>>> DotNet_Angular_AE_Business_Loan_2023-Muralikrishnangopi
-            ]
+            "scripts": [ "node_modules/bootstrap/dist/js/bootstrap.min.js"
+          ]
           }
         },
         "lint": {
