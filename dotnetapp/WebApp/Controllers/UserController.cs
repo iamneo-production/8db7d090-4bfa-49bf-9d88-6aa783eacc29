@@ -1,5 +1,5 @@
-using Aloans.Data;
-using Aloans.Models;
+using loans.Data;
+using loans.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http;
